@@ -1,0 +1,82 @@
+$bg-canvas: #eef1f6;
+$bg-card: #ffffff;
+$text-main: #2b303a;
+$text-muted: #718096;
+$accent-color: #4a5568;
+$border-idle: #cbd5e1;
+
+body {
+  background-color: $bg-canvas;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.login-card {
+  background-color: $bg-card;
+  border: none;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.card-title-text {
+  color: $text-main;
+  letter-spacing: -0.5px;
+}
+
+.custom-input {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid $border-idle !important;
+  border-radius: 0 !important;
+  padding: 10px 4px !important;
+  color: $text-main !important;
+  transition: all 0.25s ease-in-out !important;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    transform: scale(1.02);
+    border-bottom-color: $accent-color !important;
+  }
+}
+
+.custom-link {
+  color: $text-muted;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $text-main;
+    text-decoration: underline;
+  }
+}
+
+.custom-dropdown-menu {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid $border-idle !important;
+  border-radius: 0 !important;
+
+  padding: 10px 4px !important;
+  color: $text-main !important;
+
+  height: 45px;
+
+  transition: all 0.25s ease-in-out !important;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom-color: $accent-color !important;
+    transform: scale(1.02);
+  }
+
+  option {
+    background-color: $bg-card !important;
+    color: $text-main !important;
+  }
+}

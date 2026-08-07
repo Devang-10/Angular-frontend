@@ -1,0 +1,69 @@
+<body class="d-flex align-items-center justify-content-center">
+  <div class="card login-card shadow-sm p-4 p-md-5">
+    <h2 class="text-center fw-bold mb-4 card-title-text">Sign-up</h2>
+
+    <form class="w-100">
+      <div class="mb-4">
+        <input
+          type="text"
+          class="form-control custom-input"
+          id="name"
+          placeholder="Full Name"
+          autocomplete="off"
+          required
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="mb-4">
+        <input
+          type="email"
+          class="form-control custom-input"
+          id="email"
+          placeholder="Email"
+          autocomplete="off"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <input
+          type="password"
+          class="form-control custom-input"
+          id="password"
+          placeholder="Password"
+          required
+          autocomplete="off"
+          minlength="8"
+        />
+      </div>
+
+      <div class="mb-5 position-relative dropdown">
+        <select
+          id="roleInput"
+          name="role"
+          class="form-select custom-dropdown-menu"
+          required
+        >
+          <option value="" selected disabled>Select Role</option>
+          <option value="User / Client">User / Client</option>
+          <option value="Developer">Developer</option>
+          <option value="Administrator">Administrator</option>
+        </select>
+      </div>
+
+      <div class="d-grid mb-4">
+        <button type="submit" class="btn btn-all py-2 fw-semibold">
+          Create Account
+        </button>
+      </div>
+
+      <div class="text-center small text-muted">
+        Already have an account?
+        <a routerLink="/login" class="fw-semibold text-decoration-none">
+          Login
+        </a>
+      </div>
+    </form>
+  </div>
+</body>

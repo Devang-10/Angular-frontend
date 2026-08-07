@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+$bg-canvas: #eef1f6;
+$bg-card: #ffffff;
+$text-main: #2b303a;
+$text-muted: #718096;
+$accent-color: #4a5568;
+$border-idle: #cbd5e1;
+
+.btn-all {
+  background-color: $text-main;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: #ffffff;
+    box-shadow: none;
+  }
+}
