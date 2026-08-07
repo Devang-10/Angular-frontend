@@ -56,6 +56,8 @@ body {
 }
 
 .custom-dropdown-menu {
+  border: 3px solid red !important;
+  background: yellow !important;
   background-color: transparent !important;
   border: none !important;
   border-bottom: 2px solid $border-idle !important;

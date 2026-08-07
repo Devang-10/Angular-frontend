@@ -9,28 +9,39 @@
       <div class="mb-4 w-100">
         <input
           type="email"
+          name="email"
           class="form-control custom-input border-0 border-bottom border-secondary no-focus-glow"
           id="email"
           placeholder="Email"
           autocomplete="off"
           required
+          [(ngModel)]="email"
         />
+      </div>
+
+      <div *ngIf="email && !email.includes('@')">
+        Please enter a valid email!
       </div>
 
       <div class="mb-3 w-100">
         <input
           type="password"
+          name="password"
           class="form-control custom-input border-0 border-bottom border-secondary no-focus-glow"
           id="password"
           placeholder="Password"
           required
           autocomplete="off"
           minlength="8"
+          [(ngModel)]="password"
         />
       </div>
 
       <div class="text-start mb-4">
-        <a href="#" class="text-decoration-none small fw-semibold"
+        <a
+          type="button"
+          class="text-decoration-none small fw-semibold"
+          (click)="forgotPassword()"
           >Forgot Password?</a
         >
       </div>
@@ -40,6 +51,8 @@
           type="submit"
           id="login-btn"
           class="btn btn-all py-2 fs-5 btn-green"
+          (click)="login()"
+          [disabled]="!isFormValid()"
         >
           Login
         </button>

@@ -11,10 +11,11 @@
           placeholder="Full Name"
           autocomplete="off"
           required
+          name="name"
+          [(ngModel)]="name"
         />
       </div>
 
-      <!-- Email -->
       <div class="mb-4">
         <input
           type="email"
@@ -23,6 +24,8 @@
           placeholder="Email"
           autocomplete="off"
           required
+          name="email"
+          [(ngModel)]="email"
         />
       </div>
 
@@ -35,15 +38,24 @@
           required
           autocomplete="off"
           minlength="8"
+          name="password"
+          [(ngModel)]="password"
+          (focus)="isPasswordFocused = true"
+          (blur)="isPasswordFocused = false"
         />
       </div>
+      <p *ngIf="isPasswordFocused && password">
+        {{ passwordStrength() }} password
+      </p>
 
       <div class="mb-5 position-relative dropdown">
         <select
           id="roleInput"
           name="role"
-          class="form-select custom-dropdown-menu"
+          class="custom-dropdown-menu"
           required
+          name="role"
+          [(ngModel)]="role"
         >
           <option value="" selected disabled>Select Role</option>
           <option value="User / Client">User / Client</option>
@@ -53,7 +65,12 @@
       </div>
 
       <div class="d-grid mb-4">
-        <button type="submit" class="btn btn-all py-2 fw-semibold">
+        <button
+          type="submit"
+          class="btn btn-all py-2 fw-semibold"
+          [disabled]="!isSignupValid()"
+          (click)="signup()"
+        >
           Create Account
         </button>
       </div>

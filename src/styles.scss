@@ -20,3 +20,14 @@ $border-idle: #cbd5e1;
     box-shadow: none;
   }
 }
+
+.btn-all:disabled {
+  background-color: $text-main;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
