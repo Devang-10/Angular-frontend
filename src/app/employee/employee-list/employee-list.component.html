@@ -1,0 +1,27 @@
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Employee Management</h2>
+
+    <button class="btn btn-all" (click)="getEmployeeList()">
+      Get Employee List
+    </button>
+    <button class="btn btn-warning" (click)="highlightTopSalaries()">
+      Highlight Top Salaries
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let emp of employees">
+      <app-employee-card
+        [employee]="emp"
+        (delete)="deleteEmployee($event)"
+        (edit)="editEmployee($event)"
+      >
+      </app-employee-card>
+    </div>
+  </div>
+
+  <div *ngIf="employees.length === 0" class="text-center mt-5 text-muted">
+    Click "Get Employee List" to load employees.
+  </div>
+</div>
