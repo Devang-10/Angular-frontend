@@ -1,0 +1,91 @@
+<div class="employee-details-page" *ngIf="employee">
+  <div class="container py-5">
+    <div class="details-card">
+      <div class="details-topbar">
+        <button class="btn btn-back" routerLink="/employees">
+          <i class="bi bi-arrow-left me-2"></i>
+          Back to Employees
+        </button>
+      </div>
+
+      <div class="employee-header">
+        <div class="employee-avatar">
+          {{ employee.name.charAt(0) }}
+        </div>
+
+        <div class="employee-meta">
+          <h2>{{ employee.name }}</h2>
+          <p>{{ employee.department }} Department</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="bi bi-building"></i>
+          </div>
+          <div>
+            <span class="label">Department</span>
+            <p>{{ employee.department }}</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <div>
+            <span class="label">City</span>
+            <p>{{ employee.city }}</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="bi bi-person"></i>
+          </div>
+          <div>
+            <span class="label">Age</span>
+            <p>{{ employee.age }} Years</p>
+          </div>
+        </div>
+
+        <div class="info-item salary-item">
+          <div class="info-icon salary-icon">
+            <i class="bi bi-currency-rupee"></i>
+          </div>
+          <div>
+            <span class="label">Salary</span>
+            <p class="salary">₹{{ employee.salary | number }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-actions">
+        <button
+          class="btn btn-secondary-custom"
+          [disabled]="isPrevDisabled"
+          (click)="previousEmployee()"
+        >
+          Previous
+        </button>
+
+        <button
+          class="btn btn-edit"
+          [disabled]="isNextDisabled"
+          (click)="nextEmployee()"
+        >
+          Next Employee
+        </button>
+        <button class="btn btn-edit">
+          <i class="bi bi-pencil-square me-2"></i>
+          Edit Employee
+        </button>
+
+        <button class="btn btn-secondary-custom" routerLink="/employees">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

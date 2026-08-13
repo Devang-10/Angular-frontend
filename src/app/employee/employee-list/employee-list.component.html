@@ -1,27 +1,46 @@
-<div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Employee Management</h2>
+<div class="employee-page">
+  <div class="container py-4">
 
-    <button class="btn btn-all" (click)="getEmployeeList()">
-      Get Employee List
-    </button>
-    <button class="btn btn-warning" (click)="highlightTopSalaries()">
-      Highlight Top Salaries
-    </button>
-  </div>
+    <div class="page-header mb-4">
+      <div>
+        <h2 class="page-title">Employee Management</h2>
+        <p class="page-subtitle">
+          Manage employees, review departments, and view employee details.
+        </p>
+      </div>
 
-  <div class="row g-4">
-    <div class="col-md-4" *ngFor="let emp of employees">
-      <app-employee-card
-        [employee]="emp"
-        (delete)="deleteEmployee($event)"
-        (edit)="editEmployee($event)"
-      >
-      </app-employee-card>
+      <div class="action-toolbar">
+        <button class="btn btn-accent" (click)="getEmployeeList()">
+          <i class="bi bi-people-fill me-2"></i>
+          Get Employee List
+        </button>
+
+        <button class="btn btn-highlight" (click)="highlightTopSalaries()">
+          <i class="bi bi-star-fill me-2"></i>
+          Highlight Top Salaries
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div *ngIf="employees.length === 0" class="text-center mt-5 text-muted">
-    Click "Get Employee List" to load employees.
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let emp of employees">
+        <div class="employee-card-wrapper">
+          <app-employee-card
+            [employee]="emp"
+            (delete)="deleteEmployee($event)"
+            (edit)="editEmployee($event)">
+          </app-employee-card>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="employees.length === 0" class="empty-state mt-5">
+      <div class="empty-icon">
+        <i class="bi bi-people"></i>
+      </div>
+      <h5>No employees loaded</h5>
+      <p>Click <strong>Get Employee List</strong> to load employee data.</p>
+    </div>
+
   </div>
 </div>

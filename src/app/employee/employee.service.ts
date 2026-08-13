@@ -166,10 +166,22 @@ export class EmployeeService {
       age: 29,
       salary: 51500,
     },
+    {
+      id: 21,
+      name: 'Vaibhav Pandey',
+      department: 'Finance',
+      city: 'Mangalore',
+      age: 35,
+      salary: 76500,
+    },
   ];
 
   getEmployees(): Employee[] {
     return [...this.employees];
+  }
+
+  getEmployeeById(id: number): Employee | undefined {
+    return this.employees.find((emp) => emp.id === id);
   }
 
   deleteEmployee(id: number): void {

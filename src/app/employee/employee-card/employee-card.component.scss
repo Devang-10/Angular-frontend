@@ -1,0 +1,82 @@
+$bg-page: #eef1f6;
+$bg-card: #ffffff;
+$accent: #2b303a;
+$accent-hover: #1f2937;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$border-soft: #d9e0ea;
+$salary-bg: #ecfdf5;
+$salary-text: #047857;
+$primary-blue: #2563eb;
+$primary-blue-hover: #1d4ed8;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.card {
+  border: none;
+  border-radius: 22px;
+  background: #ffffff;
+  height: 100%;
+}
+
+.card-body {
+  padding: 1.4rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.9rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #4b5563;
+
+  strong {
+    color: #111827;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  border-radius: 12px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  min-width: 92px;
+}
+
+.btn-primary {
+  background: #fff;
+  color: $accent;
+  border: 1px solid $border-soft;
+  border-radius: 14px;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  &:hover {
+    background: $accent;
+    color: #fff;
+    border-color: $accent;
+  }
+}
+
+.btn-dark {
+  background: #2b303a;
+  border: none;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: none;
+}

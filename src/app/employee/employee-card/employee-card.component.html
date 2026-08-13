@@ -3,14 +3,14 @@
     <h5 class="card-title">{{ employee.name }}</h5>
 
     <p class="mb-1"><strong>Department:</strong> {{ employee.department }}</p>
-    <p class="mb-1"><strong>City:</strong> {{ employee.city }}</p>
-    <p class="mb-1"><strong>Age:</strong> {{ employee.age }}</p>
-    <p class="mb-3"><strong>Salary:</strong> ₹{{ employee.salary }}</p>
 
-    <div class="d-flex justify-content-center gap-2">
+    <div class="d-flex justify-content-center gap-2 actions">
       <button class="btn btn-all btn-sm" (click)="onEdit()">Edit</button>
 
       <button class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+      <button class="btn btn-primary" (click)="viewDetails(employee.id)">
+        View Details
+      </button>
     </div>
   </div>
 </div>

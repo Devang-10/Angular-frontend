@@ -7,6 +7,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { Employee } from '../employee.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-card',
@@ -22,11 +23,17 @@ export class EmployeeCardComponent {
   @ViewChild('cardRoot')
   cardRoot!: ElementRef;
 
+  constructor(private router: Router) {}
+
   onDelete(): void {
     this.delete.emit(this.employee.id);
   }
 
   onEdit(): void {
     this.edit.emit(this.employee);
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate(['/employee', id]);
   }
 }

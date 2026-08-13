@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { authGuard } from './auth.guard';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
@@ -15,6 +16,8 @@ export const routes: Routes = [
     component: EmployeeListComponent,
     canActivate: [authGuard],
   },
+
+  {path: 'employee/:id', component: EmployeeDetailsComponent},
 
   { path: 'login', component: LoginComponent },
 

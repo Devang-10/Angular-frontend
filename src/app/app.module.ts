@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { EmployeeCardComponent } from './employee/employee-card/employee-card.component';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { EmployeeCardComponent } from './employee/employee-card/employee-card.co
     AboutComponent,
     EmployeeListComponent,
     EmployeeCardComponent,
+    EmployeeDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, UserModule],
   providers: [],

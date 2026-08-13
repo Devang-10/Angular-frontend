@@ -23,6 +23,10 @@ export class EmployeeListComponent {
     this.employees = this.employeeService.getEmployees();
   }
 
+  getEmployeeById(id: number): void {
+    this.employees = this.employeeService.getEmployees();
+  }
+
   deleteEmployee(id: number): void {
     if (confirm('Are you sure you want to delete this employee?')) {
       this.employeeService.deleteEmployee(id);
