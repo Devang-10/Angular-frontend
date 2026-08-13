@@ -1,10 +1,10 @@
-<nav class="top-navbar">
+<nav class="top-navbar" *ngIf="authService.isLoggedIn()">
   <div class="nav-container">
     <div class="brand">Angular App</div>
 
     <div class="nav-links">
       <a
-        routerLink="/"
+        routerLink="/home"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="nav-link"
@@ -15,16 +15,12 @@
         >About</a
       >
 
-      <a routerLink="/login" routerLinkActive="active" class="nav-link"
-        >Login</a
-      >
-
-      <a routerLink="/signup" routerLinkActive="active" class="nav-link"
-        >Sign Up</a
-      >
-
       <a routerLink="/employees" routerLinkActive="active" class="nav-link"
         >Employees</a
+      >
+
+      <a routerLink="/login" class="nav-link" (click)="authService.logout()"
+        >Logout</a
       >
     </div>
   </div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +11,25 @@ export class LoginComponent {
   email = '';
   password = '';
 
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
+
+  ngOnInit() {
+    this.email = this.authService.getSignupEmail();
+  }
+
   isFormValid() {
     if (this.email.trim() !== '' && this.password.trim() !== '') return true;
     return false;
   }
 
   login() {
-    const loginRequest = {
-      email: this.email,
-      password: this.password,
-    };
-    console.log('Login Request: ', loginRequest);
+    this.authService.login();
+    alert('login successful');
+    this.router.navigate(['/home']);
   }
 
-  forgotPassword() {
-    console.log('Send Password Reset Link to: ', this.email);
-  }
+  forgotPassword() {}
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,6 +14,11 @@ export class SignupComponent {
   role: string = '';
   isPasswordFocused: boolean = false;
 
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
+
   isSignupValid(): boolean {
     return (
       this.name.trim() !== '' &&
@@ -21,13 +28,9 @@ export class SignupComponent {
     );
   }
   signup(): void {
-    const signupRequest = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      role: this.role,
-    };
-    console.log('SignUp Request: ', signupRequest);
+    this.authService.setSignupEmail(this.email);
+    alert('Signup successful');
+    this.router.navigate(['/login']);
   }
   passwordStrength(): string {
     if (this.password.length == 0) return '';

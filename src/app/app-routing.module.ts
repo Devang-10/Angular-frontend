@@ -5,18 +5,26 @@ import { SignupComponent } from './user/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+
+  {
+    path: 'employees',
+    component: EmployeeListComponent,
+    canActivate: [authGuard],
+  },
 
   { path: 'login', component: LoginComponent },
 
   { path: 'signup', component: SignupComponent },
 
   { path: 'about', component: AboutComponent },
-  { path: 'employees', component: EmployeeListComponent },
 
-  { path: '**', redirectTo: '' },
+  { path: '', redirectTo: 'signup', pathMatch: 'full' },
+
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
