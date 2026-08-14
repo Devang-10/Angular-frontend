@@ -29,10 +29,6 @@ export class EmployeeCardComponent {
     this.delete.emit(this.employee.id);
   }
 
-  onEdit(): void {
-    this.edit.emit(this.employee);
-  }
-
   viewDetails(id: number) {
     this.router.navigate(['/employee', id]);
   }

@@ -1,0 +1,137 @@
+$bg-canvas: #eef1f6;
+$bg-card: #ffffff;
+$text-main: #2b303a;
+$text-muted: #718096;
+$accent-color: #4a5568;
+$border-idle: #cbd5e1;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f4f7fb 0%, $bg-canvas 100%);
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 720px;
+}
+
+.card {
+  background: $bg-card;
+  border: 1px solid rgba(203, 213, 225, 0.7);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  }
+}
+
+h3 {
+  color: $text-main;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.form-label {
+  color: $text-main;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+
+.form-control {
+  border: 1px solid $border-idle;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: $text-main;
+  background-color: #fff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $accent-color;
+    box-shadow: 0 0 0 0.2rem rgba(74, 85, 104, 0.15);
+    outline: none;
+  }
+}
+
+.mb-3 {
+  margin-bottom: 1.15rem !important;
+}
+
+.d-flex {
+  margin-top: 1.5rem;
+}
+
+.btn {
+  min-width: 120px;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.2rem;
+  font-weight: 600;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background-color: $accent-color;
+  border-color: $accent-color;
+  box-shadow: 0 8px 18px rgba(74, 85, 104, 0.18);
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background-color: darken($accent-color, 6%);
+    border-color: darken($accent-color, 6%);
+    box-shadow: 0 10px 22px rgba(74, 85, 104, 0.24);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $text-main;
+  border: 1px solid $border-idle;
+
+  &:hover {
+    background-color: #f8fafc;
+    border-color: darken($border-idle, 8%);
+  }
+}
+
+@media (max-width: 576px) {
+  :host {
+    padding: 1rem 0.75rem;
+  }
+
+  .card {
+    border-radius: 0.9rem;
+    padding: 1.25rem !important;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

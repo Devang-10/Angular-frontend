@@ -7,6 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { authGuard } from './auth.guard';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
+import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
+import { unsavedChangesGuard } from './guards/unsaved-changes.guard';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
@@ -17,13 +19,19 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  {path: 'employee/:id', component: EmployeeDetailsComponent},
+  { path: 'employee/:id', component: EmployeeDetailsComponent },
 
   { path: 'login', component: LoginComponent },
 
   { path: 'signup', component: SignupComponent },
 
   { path: 'about', component: AboutComponent },
+
+  {
+    path: 'edit/:id',
+    component: EditEmployeeComponent,
+    canDeactivate: [unsavedChangesGuard],
+  },
 
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
 

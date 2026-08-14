@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employee-details',
@@ -53,5 +54,8 @@ export class EmployeeDetailsComponent {
     } else {
       this.isPrevDisabled = true;
     }
+  }
+  editEmployee(id: number): void {
+    this.router.navigate(['/edit', id]);
   }
 }
